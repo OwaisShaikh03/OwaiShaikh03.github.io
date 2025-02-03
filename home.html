@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - IP Geolocation App</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>IP Geolocation App</h1>
+    <div class="tabs">
+      <button onclick="showTab('tab1')">My IP & Location</button>
+      <button onclick="showTab('tab2')">Search IP</button>
+    </div>
+
+    <!-- Tab 1: My IP & Location -->
+    <div id="tab1" class="tab-content">
+      <h2>My IP & Location</h2>
+      <p>Your IP Address: <span id="myIp"></span></p>
+      <div id="map1" class="map"></div>
+      <table id="myIpTable">
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- Tab 2: Search IP -->
+    <div id="tab2" class="tab-content" style="display: none;">
+      <h2>Search IP</h2>
+      <input type="text" id="ipInput" placeholder="Enter IP Address" />
+      <button onclick="fetchIpData()">Search</button>
+      <div id="map2" class="map"></div>
+      <table id="searchIpTable">
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="home.js"></script>
+</body>
+</html>
