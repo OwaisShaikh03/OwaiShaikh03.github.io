@@ -36,7 +36,11 @@ async function fetchMyIpData() {
   const ip = ipData.ip;
   document.getElementById('myIp').textContent = ip;
 
-  const locationResponse = await fetch(`http://ip-api.com/json/${ip}`);
+  // Use a CORS proxy to avoid CORS issues
+  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  const apiUrl = `https://ip-api.com/json/${ip}`;
+
+  const locationResponse = await fetch(proxyUrl + apiUrl);
   const locationData = await locationResponse.json();
 
   // Display data in the table
@@ -62,7 +66,11 @@ async function fetchIpData() {
     return;
   }
 
-  const response = await fetch(`http://ip-api.com/json/${ip}`);
+  // Use a CORS proxy to avoid CORS issues
+  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+  const apiUrl = `https://ip-api.com/json/${ip}`;
+
+  const response = await fetch(proxyUrl + apiUrl);
   const data = await response.json();
 
   if (data.status !== 'success') {
